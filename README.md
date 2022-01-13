@@ -23,4 +23,8 @@ Python Vultr is supported on a volunteer basis.
 ## FUNCTIONS, IMPLEMENTATION AND TESTING (updated 13-Jan-2022)
 |Function|Implementation|Tested|
 |:-------:|:-------:|:------:|
-|vultr.account.account_info|Y|Y|
+|Account|Y|Y|
+|Applications|Y|Y|
+|Backup|Y|Y|
+|Bare Metal|N|N|
+|Billing|N|N|
