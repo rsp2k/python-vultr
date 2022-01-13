@@ -23,20 +23,39 @@ class VultrBase(object):
         self.req_per_second = req_per_second
         self.req_duration = 1 / self.req_per_second
 
+    def _request_delete_helper(self, url, params=None):
+        return requests.delete(url,headers=heafer, data=json_module.dumps(params),timeput=60)
+
+    def _request_put_helper(self,url,params=None):
+        return requests.put(url,headers=heafer, data=json_module.dumps(params),timeput=60)
+
+    def _request_patch_helper(self,url,params=None):
+        return requests.patch(url,headers=heafer, data=json_module.dumps(params),timeput=60)
+
     def _request_get_helper(self, url, params=None):
         '''API GET request helper'''
+        header_string='{"Authorization":"Bearer '+self.api_key+'","Content-Type":"application/json"}'
+        header=json_module.loads(header_string)
+#        print(header)
         if not isinstance(params, dict):
             params = dict()
 
         if self.api_key:
             params['api_key'] = self.api_key
-        return requests.get(url, params=params, timeout=60)
+        return requests.get(url, params=params, headers=header, timeout=60)
 
     def _request_post_helper(self, url, params=None):
         '''API POST helper'''
+        header_string='{"Authorization":"Bearer '+self.api_key+'","Content-Type":"application/json"}'
+        header=json_module.loads(header_string)
+        print(url)
+        print(params)
+        if not isinstance(params, dict):
+            params=dict()
+
         if self.api_key:
             query = {'api_key': self.api_key}
-        return requests.post(url, params=query, data=params, timeout=60)
+        return requests.post(url, headers=header, data=json_module.dumps(params), timeout=60)
 
     def _request_helper(self, url, params, method):
         '''API request helper method'''
@@ -58,7 +77,7 @@ class VultrBase(object):
 
         resp = self._request_helper(self.api_endpoint + path, params, method)
 
-        if resp.status_code != 200:
+        if ((resp.status_code != 200) or (resp.status_code != 201) or (resp.status_code != 202) or (resp.status_code != 204)):
             if resp.status_code == 400:
                 raise VultrError('Invalid API location. Check the URL that' +
                                  ' you are using')
