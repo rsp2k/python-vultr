@@ -23,8 +23,9 @@ class VultrDNS(VultrBase):
         params = update_params(params, {'domain': domain})
         return self.request('/v2/domains/'+domain, params, 'DELETE')
 
-    def update_domain():
-        return self.request()
+    def update_domain(self, domain, dnssec, params=None):
+        params = update_params(params, {'domain':domain,'dns_sec':dnssec})
+        return self.request('/v2/domains/'+domain, params, 'PUT')
 
     def get_soa(self, domain, params=None):
         params = update_params(params, {'domain': domain})
