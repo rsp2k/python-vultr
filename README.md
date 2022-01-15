@@ -21,10 +21,28 @@ Python Vultr is supported on a volunteer basis.
 * [![Gitter.im](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/spry-group/python-vultr)
 
 ## FUNCTIONS, IMPLEMENTATION AND TESTING (updated 13-Jan-2022)
-|Function|Implementation|Tested|
+*Keep checking this repo for updates as I add more APIv2 Functionality.
+|API Module|Implementation|Tested|
 |:-------:|:-------:|:------:|
 |Account|Y|Y|
 |Applications|Y|Y|
 |Backup|Y|Y|
 |Bare Metal|N|N|
 |Billing|N|N|
+|Block Storage|N|N|
+|DNS|Y|N|
+|Firewall|N|N|
+|Instances|N|N|
+|ISO|N|N|
+|Kubernetes|N|N|
+|Load Balancers|N|N|
+|Object Storage|N|N|
+|Operating Systems|N|N|
+|Plans|N|N|
+|Private Networks|N|N|
+|Reserved IPs|N|N|
+|Regions|N|N|
+|Snapshots|N|N|
+|SSH Keys|N|N|
+|Startup Scripts|N|N|
+|Users|N|N|
