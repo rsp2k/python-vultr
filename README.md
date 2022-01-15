@@ -30,7 +30,7 @@ Python Vultr is supported on a volunteer basis.
 |Bare Metal|N|N|
 |Billing|N|N|
 |Block Storage|N|N|
-|DNS|Y|N|
+|DNS|Y|Y|
 |Firewall|N|N|
 |Instances|N|N|
 |ISO|N|N|
