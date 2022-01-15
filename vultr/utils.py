@@ -35,7 +35,15 @@ class VultrBase(object):
         return requests.delete(url,headers=header, data=json_module.dumps(params),timeout=60)
 
     def _request_put_helper(self,url,params=None):
-        return requests.put(url,headers=heafer, data=json_module.dumps(params),timeput=60)
+        '''API PUT request helper'''
+        header_string='{"Authorization":"Bearer '+self.api_key+'","Content-Type":"application/json"}'
+        header=json_module.loads(header_string)
+        if not isinstance(params, dict):
+            params = dict()
+
+        if self.api_key:
+            params['api_key'] = self.api_key
+        return requests.put(url,headers=header, data=json_module.dumps(params),timeout=60)
 
     def _request_patch_helper(self,url,params=None):
         '''API PATCH request helper'''
@@ -84,6 +92,8 @@ class VultrBase(object):
                 return self._request_patch_helper(url, params)
             elif method == 'DELETE':
                 return self._request_delete_helper(url,params)
+            elif method == 'PUT':
+                return self._request_put_helper(url,params)
             raise VultrError('Unsupported method %s' % method)
         except requests.RequestException as ex:
             raise RuntimeError(ex)
