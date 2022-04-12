@@ -1,7 +1,6 @@
 '''Partial class to handle Vultr DNS API calls'''
 from .utils import VultrBase, update_params
 
-
 class VultrDNS(VultrBase):
     '''Handles Vultr DNS API calls'''
     def __init__(self, api_key):
@@ -44,17 +43,19 @@ class VultrDNS(VultrBase):
         return self.request('/v2/domains/'+domain+'/records', params, 'POST')
 
     def list_records(self, domain, params=None):
-        params = update_params(params, {'domain': domain})
+#        params = update_params(params, {'domain': domain})
         return self.request('v2/domains/'+domain+'/records', params, 'GET')
 
     def get_record(self, domain, recordid, params=None):
-        params = update_params(params, {'domain': domain,'RECORDID': recordid})
+        params = update_params(params, {'domain': domain,'recordid': recordid})
         return self.request('/v2/domains/'+domain+'/records/'+recordid,params,'GET')
 
     def delete_record(self, domain, recordid, params=None):
-        params = update_params(params, {'domain': domain,'RECORDID': recordid})
+        params = update_params(params, {'domain': domain,'recordid': recordid})
         return self.request('/v2/domains/'+domain+'/records/'+recordid, params, 'DELETE')
 
     def update_record(self, domain, recordid, params=None):
-        params = update_params(params, {'domain': domain,'RECORDID': recordid})
+        print(params)
+        params = update_params(params, {'domain':domain,'recordid':recordid})
+        print(params)
         return self.request('/v2/domains/'+domain+'/records/'+recordid, params, 'PATCH')

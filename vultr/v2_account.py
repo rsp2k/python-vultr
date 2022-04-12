@@ -10,3 +10,4 @@ class VultrAcc(VultrBase):
     def account_info(self, params=None):
         params = params if params else dict()
         return self.request('/v2/account', params, 'GET')
+

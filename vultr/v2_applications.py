@@ -10,3 +10,4 @@ class VultrApp(VultrBase):
     def list_applications(self, params=None):
         params = params if params else dict()
         return self.request('/v2/applications', params, 'GET')
+

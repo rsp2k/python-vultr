@@ -14,3 +14,4 @@ class VultrBackup(VultrBase):
     def get_backup(self, backupid, params=None):
         params = params if params else dict()
         return self.request('/v2/backups/'+backupid, params, 'GET')
+

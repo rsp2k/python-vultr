@@ -34,3 +34,5 @@ class VultrBlockStorage(VultrBase):
     def detach_blockstorage(self, blockid, params=None):
         params = params if params else dict()
         return self.request('/v2/blocks/'+blockid+'/detach', params, 'POST')
+
+
