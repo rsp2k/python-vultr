@@ -12,7 +12,7 @@ def read(filename):
     return open(filename).read()
 
 setup(
-    name='vultr',
+    name='vultr_api',
     version='1.0.1',
     install_requires=[
         "requests"
@@ -20,10 +20,10 @@ setup(
     description='Vultr.com API Client',
     long_description=(read('README.md')),
     long_description_content_type='text/markdown',
-    url='http://github.com/spry-group/python-vultr',
+    url='http://github.com/rsp2k/python-vultr',
     author='Darrel O\'Pry',
     author_email='darrel.opry@spry-group.com',
-    packages=['vultr'],
+    packages=['vultr_api'],
     classifiers=[
         'Intended Audience :: Developers',
         'Natural Language :: English',

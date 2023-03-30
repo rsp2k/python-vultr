@@ -9,9 +9,13 @@ I am re-doing this repo for APIv2.
 ## Usage
 
 ```python3
+
+from vultr_api import Vultr
+
 api_key = 'XXXXXXXXX'
 vultr = Vultr(api_key)
 plans_json = vultr.plans.list()
+
 ```
 ## Support
 

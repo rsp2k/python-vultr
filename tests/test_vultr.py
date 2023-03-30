@@ -4,7 +4,7 @@ import os
 from time import sleep
 import warnings
 import pprint
-from vultr import Vultr, VultrError
+from vultr_api import Vultr, VultrError
 
 VULTR_TEST_LABEL = 'python-vultr: test'
 
